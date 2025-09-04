@@ -1,0 +1,109 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.logo-container:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.2));
+  transition: var(--transition-normal);
+}
+
+.logo-container:hover .logo-icon svg {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(255, 107, 107, 0.3));
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.logo-tagline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: -0.2rem;
+}
+
+/* Size variations */
+.logo-container.small .logo-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.logo-container.small .logo-name {
+  font-size: 1.4rem;
+}
+
+.logo-container.small .logo-tagline {
+  font-size: 0.65rem;
+}
+
+.logo-container.large .logo-icon svg {
+  width: 64px;
+  height: 64px;
+}
+
+.logo-container.large .logo-name {
+  font-size: 2.25rem;
+}
+
+.logo-container.large .logo-tagline {
+  font-size: 0.875rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .logo-container {
+    gap: 0.5rem;
+  }
+  
+  .logo-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-name {
+    font-size: 1.5rem;
+  }
+  
+  .logo-tagline {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    display: none;
+  }
+  
+  .logo-icon svg {
+    width: 44px;
+    height: 44px;
+  }
+}

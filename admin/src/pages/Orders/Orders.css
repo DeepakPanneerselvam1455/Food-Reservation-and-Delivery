@@ -1,0 +1,306 @@
+/* Orders Page Container */
+.order {
+  flex: 1;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+  overflow-y: auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.order h3 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 2rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Orders List Container */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Order Item Card */
+.order-item {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-100);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 60px 2fr 120px 120px 160px;
+  align-items: start;
+  gap: 2rem;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.order-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: var(--transition-normal);
+}
+
+.order-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.order-item:hover::before {
+  width: 8px;
+}
+
+/* Order Icon */
+.order-item img {
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.order-item:hover img {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Order Details */
+.order-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.order-item-food {
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  color: var(--gray-800);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  background: var(--gray-50);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--primary-color);
+}
+
+.order-item-name {
+  font-weight: 700;
+  font-family: var(--font-secondary);
+  color: var(--gray-900);
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+}
+
+.order-item-address {
+  background: var(--gray-50);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--gray-200);
+}
+
+.order-item-address p {
+  margin: 0.25rem 0;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.order-item-phone {
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-family: var(--font-secondary);
+  background: rgba(108, 92, 231, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  text-align: center;
+  border: 1px solid var(--secondary-light);
+}
+
+/* Order Stats */
+.order-item > p {
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--gray-200);
+  color: var(--gray-700);
+  font-family: var(--font-secondary);
+  transition: var(--transition-normal);
+}
+
+.order-item > p:nth-child(4) {
+  color: var(--info);
+  border-color: var(--info);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.order-item > p:nth-child(5) {
+  font-size: 1.125rem;
+  color: var(--success);
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* Status Select */
+.order-item select {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  outline: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+
+.order-item select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+  transform: translateY(-1px);
+}
+
+.order-item select:hover {
+  border-color: var(--primary-light);
+  background: var(--gray-50);
+}
+
+/* Status-based styling */
+.order-item select[value="Food Processing"] {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.order-item select[value="Out for delivery"] {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--info);
+  border-color: var(--info);
+}
+
+.order-item select[value="Delivered"] {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+/* Empty State */
+.order-list:empty::after {
+  content: 'No orders found. Orders will appear here once customers start placing them!';
+  display: block;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray-400);
+  font-style: italic;
+  font-size: 1.125rem;
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  border: 2px dashed var(--gray-300);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .order {
+    padding: 2rem 1.5rem;
+  }
+  
+  .order-item {
+    grid-template-columns: 50px 2fr 100px 100px 140px;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .order-item img {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .order h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .order-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .order-item img {
+    width: 40px;
+    height: 40px;
+    justify-self: center;
+  }
+  
+  .order-item > p,
+  .order-item select {
+    justify-self: stretch;
+  }
+  
+  .order-item-name {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .order {
+    padding: 1.5rem 1rem;
+  }
+  
+  .order h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .order-item {
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+  }
+  
+  .order-item-food {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .order-item-address {
+    padding: 0.875rem;
+  }
+  
+  .order-item select {
+    font-size: 0.8125rem;
+    padding: 0.75rem 0.875rem;
+    padding-right: 2.25rem;
+  }
+}
